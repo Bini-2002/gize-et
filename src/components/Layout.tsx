@@ -35,7 +35,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center gap-2">
-              <img src="gize - logo.png" alt="Gize PLC Logo" className="h-12 object-contain" />
+              <img src="/gize-logo.png" alt="Gize PLC Logo" className="h-12 object-contain" />
               <div className={`font-extrabold text-xl leading-none flex flex-col ${isScrolled ? 'text-blue-900' : 'text-white'}`}>
                 <span>Gize</span>
                 <span className="text-[10px] tracking-[0.2em]">PLC</span>
@@ -90,7 +90,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
             {/* Logo Part - Left */}
             <div className="lg:col-span-3 flex flex-col items-center lg:items-start gap-4">
-              <img src="gize - logo.png" alt="Gize Logo" className="h-24 lg:h-32 object-contain" />
+              <img src="/gize-logo.png" alt="Gize Logo" className="h-24 lg:h-32 object-contain" />
               <div className="text-gray-400 font-bold text-[10px] uppercase tracking-[0.3em] text-center lg:text-left">
                 Private Limited Company
               </div>
@@ -112,7 +112,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="lg:col-span-3 flex flex-col items-center gap-8">
               <div className="w-48 h-48 flex items-center justify-center">
                 <img 
-                  src="cyber-globe-removebg-preview (1).png" 
+                  src="/globe.png" 
                   alt="Globe" 
                   className="w-full h-full object-contain animate-spin-slow opacity-90" 
                 />

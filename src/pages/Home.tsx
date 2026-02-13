@@ -79,13 +79,13 @@ const Home: React.FC = () => {
             <div className="flex-grow bg-[#0B1238] h-full flex flex-col items-center pt-48 gap-16 shadow-2xl">
                <button className="flex flex-col items-center group transition-all">
                  <div className="p-2 transition-transform group-hover:scale-110">
-                   <img src="location.png" alt="Trace" className="w-8 h-8 lg:w-10 lg:h-10 object-contain brightness-0 invert" />
+                   <img src="/location.png" alt="Trace" className="w-8 h-8 lg:w-10 lg:h-10 object-contain brightness-0 invert" />
                  </div>
                  <span className="text-white text-[8px] lg:text-[10px] font-bold mt-2 uppercase tracking-tighter text-center px-1">Trace and Track</span>
                </button>
                <button className="flex flex-col items-center group transition-all">
                  <div className="p-2 transition-transform group-hover:scale-110">
-                   <img src="phone-book.png" alt="Contact" className="w-8 h-8 lg:w-10 lg:h-10 object-contain brightness-0 invert" />
+                   <img src="/phone-book-ref.png" alt="Contact" className="w-8 h-8 lg:w-10 lg:h-10 object-contain brightness-0 invert" />
                  </div>
                  <span className="text-white text-[8px] lg:text-[10px] font-bold mt-2 uppercase tracking-tighter text-center px-1">Contact Us</span>
                </button>
@@ -105,7 +105,7 @@ const Home: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B1238]/80 via-[#0B1238]/40 to-transparent"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full md:pl-48">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full md:pl-64">
           <div className="max-w-3xl">
             {/* Rotating Subtitle */}
             <div className="flex items-center gap-4 mb-6 transition-all duration-500 overflow-hidden h-6">

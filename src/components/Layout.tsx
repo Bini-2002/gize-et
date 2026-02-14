@@ -36,10 +36,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center gap-2">
               <img src="/gize-logo.png" alt="Gize PLC Logo" className="h-12 object-contain" />
-              <div className={`font-extrabold text-xl leading-none flex flex-col ${isScrolled ? 'text-blue-900' : 'text-white'}`}>
-                <span>Gize</span>
-                <span className="text-[10px] tracking-[0.2em]">PLC</span>
-              </div>
+              
             </Link>
 
             <nav className="hidden md:flex space-x-8">

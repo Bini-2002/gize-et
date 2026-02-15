@@ -1,13 +1,15 @@
 
 import Hero from '../components/Hero';
 import { Quote } from 'lucide-react';
+import heroImage from '../images/i222.jpg';
+import ceoImage from '../images/ceo_3.jpg';
 
 function About() {
   return (
     <div>
       <Hero 
         title="About us" 
-        image="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200"
+        image={heroImage}
       />
 
       <section className="py-24 bg-red-600 text-white">
@@ -46,7 +48,7 @@ function About() {
            <div className="relative bg-[#FF6B6B] rounded-2xl overflow-hidden shadow-2xl flex flex-col lg:flex-row">
               <div className="lg:w-1/3 relative">
                  <img 
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
+                    src={ceoImage}
                     className="h-full w-full object-cover aspect-[4/5]" 
                     alt="CEO" 
                  />

@@ -288,7 +288,7 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        {/* Additional Services - Adjusted layout: left card flush to edge, no gap */}
+       
         {/* Additional Services - with vertical bullets and longer image */}
 <section className="py-24 bg-white overflow-hidden">
   {/* Title with container padding */}

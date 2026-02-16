@@ -2,44 +2,54 @@
 import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import { Play, ChevronRight, Plus, ChevronLeft } from 'lucide-react';
+import heroImg from '../images/Shipping_2.jpeg';
+import overviewImg from '../images/i2.jpeg';
+import videoImg from '../images/i33.jpg';
+import doorImg1 from '../images/i1.jpeg';
+import doorImg2 from '../images/i11.jpeg';
+import doorImg3 from '../images/Freight_Forwarding.jpeg';
+import cardImg1 from '../images/i5.jpg';
+import cardImg2 from '../images/i44.jpg';
+import cardImg3 from '../images/i222.jpg';
+import cardImg4 from '../images/i55.jpg';
 
 const Shipping: React.FC = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const serviceCards = [
-    { title: "Partial Container Shipping", img: "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80&w=400" },
-    { title: "Door-to-Door Container Shipping", img: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=400" },
-    { title: "Comprehensive Ocean Shipping Solution", img: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=80&w=400" },
-    { title: "Sustainable Shipping & Cargo Consolidation", img: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=400" }
+    { title: "Partial Container Shipping", img: cardImg1 },
+    { title: "Door-to-Door Container Shipping", img: cardImg2 },
+    { title: "Comprehensive Ocean Shipping Solution", img: cardImg3 },
+    { title: "Sustainable Shipping & Cargo Consolidation", img: cardImg4 }
   ];
 
   const caseStudies = [
     {
       id: 1,
       title: "A multimodal ground solution connects Ethiopia to global markets, improving efficiency and reducing costs.",
-      img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600",
+      img: doorImg1,
       longDesc: "Connecting Ethiopia to the world through a seamless multimodal network that optimizes every segment of the journey."
     },
     {
       id: 2,
       title: "Multi-modal transport solution for peak holiday season demand and logistics planning.",
-      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600",
+      img: doorImg2,
       longDesc: "Handling the busiest logistics window with precision-timed multi-modal strategies to ensure zero delays."
     },
     {
       id: 3,
       title: "Leveraging electric vehicle for 5,000 kilometer long-haul transport across international borders.",
-      img: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=600",
+      img: doorImg3,
       longDesc: "Pioneering sustainable long-haul solutions using EV technology for massive distance freight operations."
     }
   ];
 
   return (
     <div>
-      <Hero 
-        title="Shipping" 
+      <Hero
+        title="Shipping"
         subtitle="Connecting Your Cargo to the World Safely"
-        image="https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80&w=1200"
+        image={heroImg}
       />
 
       {/* Overview Section */}
@@ -48,10 +58,10 @@ const Shipping: React.FC = () => {
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2 relative">
               <div className="absolute -top-10 -left-10 w-full h-full bg-red-600 -z-10"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80&w=800" 
-                className="w-full h-[400px] object-cover shadow-2xl" 
-                alt="Ship overview" 
+              <img
+                src={overviewImg}
+                className="w-full h-[400px] object-cover shadow-2xl"
+                alt="Ship overview"
               />
             </div>
             <div className="lg:w-1/2">
@@ -73,9 +83,9 @@ const Shipping: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
           <h2 className="text-4xl font-black text-blue-900 mb-4 uppercase tracking-tighter">Shipping</h2>
           <p className="text-gray-500 mb-12 max-w-2xl">To view the video, please enable cookies first. If the video does not play, try refreshing your browser and then play it again.</p>
-          
+
           <div className="relative group overflow-hidden rounded-sm shadow-2xl h-[550px] cursor-pointer">
-            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Video cover" />
+            <img src={videoImg} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Video cover" />
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
               <button
                 className="w-24 h-24 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-red-600 transition-all border-2 border-white/30 shadow-2xl transform group-hover:scale-110"
@@ -94,9 +104,9 @@ const Shipping: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2 grid grid-cols-12 gap-4">
-              <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=600" className="col-span-12 h-[450px] w-full object-cover rounded shadow-2xl" alt="Container Ship" />
-              <img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=80&w=400" className="col-span-6 h-56 w-full object-cover rounded shadow-xl" alt="Terminal" />
-              <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=400" className="col-span-6 h-56 w-full object-cover rounded shadow-xl" alt="Loading" />
+              <img src={doorImg1} className="col-span-12 h-[450px] w-full object-cover rounded shadow-2xl" alt="Container Ship" />
+              <img src={doorImg2} className="col-span-6 h-56 w-full object-cover rounded shadow-xl" alt="Terminal" />
+              <img src={doorImg3} className="col-span-6 h-56 w-full object-cover rounded shadow-xl" alt="Loading" />
             </div>
             <div className="lg:w-1/2 flex flex-col justify-center">
               <h3 className="text-4xl lg:text-5xl font-black text-blue-900 mb-8 uppercase tracking-tighter leading-none">Door-to-Door Container Shipping</h3>
@@ -117,12 +127,12 @@ const Shipping: React.FC = () => {
           <h2 className="text-6xl font-black text-white uppercase tracking-tighter mb-4">Discover Our Services</h2>
           <p className="text-white/80 font-bold uppercase tracking-widest text-sm">End-to-end services designed for success</p>
         </div>
-        
+
         {/* CARDS WITH HOVER STATE TRACKING */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {serviceCards.map((item, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               onMouseEnter={() => setHoveredCard(i)}
               onMouseLeave={() => setHoveredCard(null)}
               className="relative h-80 overflow-hidden group shadow-2xl rounded-sm cursor-pointer"
@@ -140,12 +150,12 @@ const Shipping: React.FC = () => {
           <button className="text-white hover:text-blue-900 transition-all transform hover:scale-110" aria-label="Previous Slide">
             <ChevronLeft size={64} strokeWidth={3} />
           </button>
-          
+
           <div className="flex-grow h-4 bg-white/20 relative rounded-full overflow-hidden shadow-inner">
             {/* The animated indicator moves based on hoveredCard index */}
-            <div 
+            <div
               className="absolute top-0 h-full w-1/4 bg-blue-900 transition-all duration-500 ease-out rounded-full shadow-lg"
-              style={{ 
+              style={{
                 left: hoveredCard !== null ? `${hoveredCard * 25}%` : '0%',
                 opacity: hoveredCard !== null ? 1 : 0.3,
                 transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)'
@@ -164,11 +174,11 @@ const Shipping: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
           {caseStudies.map((study) => (
             <div key={study.id} className="relative group flex flex-col h-[580px] overflow-hidden shadow-2xl border border-gray-100 rounded-sm cursor-pointer">
-              
+
               {/* Default View */}
               <div className="flex flex-col h-full bg-white transition-opacity duration-300 group-hover:opacity-0">
                 <div className="h-72 w-full overflow-hidden">
-                   <img src={study.img} className="h-full w-full object-cover" alt={study.title} />
+                  <img src={study.img} className="h-full w-full object-cover" alt={study.title} />
                 </div>
                 <div className="p-10 flex flex-col flex-grow justify-start">
                   <span className="text-red-500 font-black uppercase tracking-widest text-[11px] mb-8 block">CASE STUDIES</span>
@@ -183,7 +193,7 @@ const Shipping: React.FC = () => {
                   <h4 className="font-black text-3xl leading-tight mb-8 uppercase tracking-tighter">{study.title}</h4>
                   <p className="text-white/90 text-xl leading-relaxed italic font-medium">"{study.longDesc}"</p>
                 </div>
-                
+
                 <div className="flex items-center justify-between mt-auto">
                   <div className="flex items-center gap-6">
                     <div className="w-20 h-1 bg-blue-900"></div>
@@ -200,7 +210,7 @@ const Shipping: React.FC = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="text-center mt-24">
           <button className="bg-red-600 text-white px-20 py-6 font-black uppercase text-3xl tracking-tighter rounded-sm hover:bg-red-700 transition-all shadow-2xl hover:-translate-y-2 border-b-4 border-red-800">
             Discover more

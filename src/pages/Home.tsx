@@ -42,21 +42,21 @@ const Home = () => {
   ];
 
   const additionalServices = [
-    { 
-      name: 'GIZE PLC - LOGISTICS & FREIGHT STATION', 
-      content: 'Gize PLC operates a Consolidated Freight Station (CFS) at the Modjo Dry Port, located approximately 40 kilometers from Addis Ababa. The facility covers an area of 1,000 square meters and is equipped with three loading docks, enabling efficient handling, storage, and movement of cargo.' 
+    {
+      name: 'GIZE PLC - LOGISTICS & FREIGHT STATION',
+      content: 'Gize PLC operates a Consolidated Freight Station (CFS) at the Modjo Dry Port, located approximately 40 kilometers from Addis Ababa. The facility covers an area of 1,000 square meters and is equipped with three loading docks, enabling efficient handling, storage, and movement of cargo.'
     },
-    { 
-      name: 'PACKING & MOVING SERVICES', 
-      content: 'Professional packing and secure relocation services for corporate and private assets. Our team handles your valuables with the utmost care and professional standards, ensuring safe transit to any destination.' 
+    {
+      name: 'PACKING & MOVING SERVICES',
+      content: 'Professional packing and secure relocation services for corporate and private assets. Our team handles your valuables with the utmost care and professional standards, ensuring safe transit to any destination.'
     },
-    { 
-      name: 'STORAGE & WAREHOUSING SERVICES', 
-      content: 'Secure climate-controlled facilities for long-term and transit storage needs. We provide real-time inventory tracking and comprehensive security for all stored items, giving you complete peace of mind.' 
+    {
+      name: 'STORAGE & WAREHOUSING SERVICES',
+      content: 'Secure climate-controlled facilities for long-term and transit storage needs. We provide real-time inventory tracking and comprehensive security for all stored items, giving you complete peace of mind.'
     },
-    { 
-      name: 'FAST CARGO SERVICES', 
-      content: 'Time-critical logistics for urgent shipments across the globe. When every second counts, Gize PLC delivers your cargo ahead of schedule with our specialized fast-track cargo handling systems.' 
+    {
+      name: 'FAST CARGO SERVICES',
+      content: 'Time-critical logistics for urgent shipments across the globe. When every second counts, Gize PLC delivers your cargo ahead of schedule with our specialized fast-track cargo handling systems.'
     }
   ];
 
@@ -125,11 +125,11 @@ const Home = () => {
           {/* Slides Content */}
           <div className="flex-1 relative overflow-hidden">
             {slides.map((slide, index) => (
-              <img 
+              <img
                 key={index}
-                src={slide.image} 
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`} 
-                alt="Slide" 
+                src={slide.image}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+                alt="Slide"
               />
             ))}
             {/* Gradient overlay – adjusted to be transparent on left half */}
@@ -145,7 +145,7 @@ const Home = () => {
                     {slides[currentSlide].subtitle}
                   </span>
                 </div>
-                
+
                 {/* STATIC TITLE */}
                 <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white leading-tight mb-4 uppercase drop-shadow-2xl">
                   <span className="text-red-600">G</span>ize PLC
@@ -153,9 +153,9 @@ const Home = () => {
 
                 {/* ROTATING DESCRIPTION */}
                 <div className="h-32">
-                   <p className="text-lg md:text-xl lg:text-2xl text-gray-200 leading-relaxed font-medium transition-all duration-500 animate-in fade-in slide-in-from-bottom-4">
+                  <p className="text-lg md:text-xl lg:text-2xl text-gray-200 leading-relaxed font-medium transition-all duration-500 animate-in fade-in slide-in-from-bottom-4">
                     {slides[currentSlide].desc}
-                   </p>
+                  </p>
                 </div>
               </div>
             </div>
@@ -170,10 +170,10 @@ const Home = () => {
                 >
                   <ChevronLeft size={24} />
                 </button>
-                <button 
-                onClick={handleNext} 
-                className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border-2 border-white/40 flex items-center justify-center text-white hover:bg-red-600 hover:border-red-600 transition-all"
-                title="Next Slide">
+                <button
+                  onClick={handleNext}
+                  className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border-2 border-white/40 flex items-center justify-center text-white hover:bg-red-600 hover:border-red-600 transition-all"
+                  title="Next Slide">
                   <ChevronRight size={24} />
                 </button>
               </div>
@@ -184,7 +184,7 @@ const Home = () => {
                   ))}
                 </div>
                 <div className="w-48 h-1 bg-white/20 rounded-full overflow-hidden">
-                   <div className="h-full bg-red-600 transition-all duration-100 ease-linear" style={{ width: `${progress}%` }}></div>
+                  <div className="h-full bg-red-600 transition-all duration-100 ease-linear" style={{ width: `${progress}%` }}></div>
                 </div>
               </div>
             </div>
@@ -197,10 +197,10 @@ const Home = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
               {/* Red background column (left) */}
               <div className="lg:col-span-5 bg-red-600 flex items-center justify-center p-20">
-                <img 
-                  src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=800" 
-                  className="w-full h-[500px] object-cover shadow-2xl" 
-                  alt="Logistics" 
+                <img
+                  src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=800"
+                  className="w-full h-[500px] object-cover shadow-2xl"
+                  alt="Logistics"
                 />
               </div>
 
@@ -218,8 +218,8 @@ const Home = () => {
                     With a dedicated team and a modern fleet, we transform complex shipping challenges into seamless experiences. We are committed to empowering your business by providing the reliable, fast, and secure movement of your cargo.
                   </p>
                 </div>
-                <Link 
-                  to="/about" 
+                <Link
+                  to="/about"
                   className="mt-8 bg-red-600 hover:bg-red-700 text-white px-10 py-4 font-black shadow-xl inline-flex items-center gap-3 self-start transition-all uppercase tracking-widest text-sm"
                 >
                   See detail <ChevronRight size={20} />
@@ -261,7 +261,7 @@ const Home = () => {
                   // Determine which image to show
                   const imageSrc = cardImageIndices[idx] === 0 ? service.image : secondaryImages[idx % secondaryImages.length];
                   return (
-                    <div key={service.id} className="group relative flex flex-col h-full overflow-hidden shadow-2xl">
+                    <Link to={service.link} key={service.id} className="group relative flex flex-col h-full overflow-hidden shadow-2xl block">
                       {/* Image */}
                       <img
                         src={imageSrc}
@@ -287,7 +287,7 @@ const Home = () => {
                       >
                         <Plus size={24} strokeWidth={4} />
                       </button>
-                    </div>
+                    </Link>
                   );
                 })}
               </div>
@@ -295,76 +295,75 @@ const Home = () => {
           </div>
         </section>
 
-       
+
         {/* Additional Services - with vertical bullets and longer image */}
-<section className="py-24 bg-white overflow-hidden">
-  {/* Title with container padding */}
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-16">
-      <h2 className="text-5xl font-black text-blue-900 uppercase tracking-tighter">Additional Services</h2>
-      <div className="w-32 h-1.5 bg-red-600 mx-auto mt-4"></div>
-    </div>
-  </div>
+        <section className="py-24 bg-white overflow-hidden">
+          {/* Title with container padding */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-black text-blue-900 uppercase tracking-tighter">Additional Services</h2>
+              <div className="w-32 h-1.5 bg-red-600 mx-auto mt-4"></div>
+            </div>
+          </div>
 
-  {/* Content - full width */}
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex flex-col border border-gray-100 shadow-2xl overflow-hidden rounded-sm">
-      <div className="flex bg-gray-50 flex-wrap overflow-x-auto">
-        {additionalServices.map((service, idx) => (
-          <button
-            key={idx}
-            onClick={() => setActiveTab(idx)}
-            className={`flex-1 min-w-[200px] px-6 py-8 font-black text-[11px] uppercase tracking-widest transition-all border-b-4 ${
-              activeTab === idx ? 'bg-white text-red-600 border-red-600' : 'text-blue-900 border-transparent hover:bg-white/50'
-            }`}
-          >
-            {service.name.split(' - ')[0]}
-          </button>
-        ))}
-      </div>
-      <div className="p-12 bg-white flex flex-col lg:flex-row gap-12 items-start">
-        {/* Image - made longer (h-96) */}
-        <img 
-          src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=80&w=800" 
-          className="w-full lg:w-1/2 h-96 object-cover rounded shadow-xl" 
-          alt="Service Detail" 
-        />
-        <div className="flex flex-col gap-6 w-full">
-          <h3 className="text-3xl font-black text-blue-900 leading-tight uppercase">{additionalServices[activeTab].name}</h3>
-          <p className="text-gray-600 leading-relaxed text-lg font-medium italic">"{additionalServices[activeTab].content}"</p>
-          {/* Bullets - now vertical (single column) */}
-          <ul className="grid grid-cols-1 gap-4 mt-4">
-            {['Secure storage', 'Professional Packing', 'Precise Labeling', 'Container stuffing', 'Efficient Handling'].map((item, i) => (
-              <li key={i} className="flex items-center gap-3 font-bold text-blue-900 text-sm">
-                <CheckCircle2 className="text-red-600 shrink-0" size={20} /> {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+          {/* Content - full width */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col border border-gray-100 shadow-2xl overflow-hidden rounded-sm">
+              <div className="flex bg-gray-50 flex-wrap overflow-x-auto">
+                {additionalServices.map((service, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveTab(idx)}
+                    className={`flex-1 min-w-[200px] px-6 py-8 font-black text-[11px] uppercase tracking-widest transition-all border-b-4 ${activeTab === idx ? 'bg-white text-red-600 border-red-600' : 'text-blue-900 border-transparent hover:bg-white/50'
+                      }`}
+                  >
+                    {service.name.split(' - ')[0]}
+                  </button>
+                ))}
+              </div>
+              <div className="p-12 bg-white flex flex-col lg:flex-row gap-12 items-start">
+                {/* Image - made longer (h-96) */}
+                <img
+                  src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=80&w=800"
+                  className="w-full lg:w-1/2 h-96 object-cover rounded shadow-xl"
+                  alt="Service Detail"
+                />
+                <div className="flex flex-col gap-6 w-full">
+                  <h3 className="text-3xl font-black text-blue-900 leading-tight uppercase">{additionalServices[activeTab].name}</h3>
+                  <p className="text-gray-600 leading-relaxed text-lg font-medium italic">"{additionalServices[activeTab].content}"</p>
+                  {/* Bullets - now vertical (single column) */}
+                  <ul className="grid grid-cols-1 gap-4 mt-4">
+                    {['Secure storage', 'Professional Packing', 'Precise Labeling', 'Container stuffing', 'Efficient Handling'].map((item, i) => (
+                      <li key={i} className="flex items-center gap-3 font-bold text-blue-900 text-sm">
+                        <CheckCircle2 className="text-red-600 shrink-0" size={20} /> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-{/* Hazardous Cargo Section (unchanged) */}
-<section className="bg-gray-100 overflow-hidden">
-  <div className="max-w-7xl mx-auto flex flex-col lg:flex-row">
-    <div className="lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center">
-      <h2 className="text-red-600 font-black text-5xl mb-10 uppercase leading-tight tracking-tighter">Hazardous Cargo Management</h2>
-      <div className="space-y-6 text-gray-700 text-lg font-medium leading-relaxed">
-        <p>
-          Gize PLC provides specialized logistics support for hazardous and regulated cargo, focusing on safety, risk control, and regulatory compliance throughout the supply chain. Each shipment is assessed individually to ensure proper handling procedures are applied from origin to destination.
-        </p>
-        <p>
-          Our operations team plans secure transport solutions by selecting suitable carriers, routes, and handling methods that minimize exposure and delays. Dedicated facilities and trained personnel ensure safe storage, monitoring, and controlled movement of sensitive cargo.
-        </p>
-      </div>
-    </div>
-    <div className="lg:w-1/2 h-[600px]">
-      <img src="https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover grayscale-[30%]" alt="Dangerous Goods Handling" />
-    </div>
-  </div>
-</section>
+        {/* Hazardous Cargo Section (unchanged) */}
+        <section className="bg-gray-100 overflow-hidden">
+          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row">
+            <div className="lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center">
+              <h2 className="text-red-600 font-black text-5xl mb-10 uppercase leading-tight tracking-tighter">Hazardous Cargo Management</h2>
+              <div className="space-y-6 text-gray-700 text-lg font-medium leading-relaxed">
+                <p>
+                  Gize PLC provides specialized logistics support for hazardous and regulated cargo, focusing on safety, risk control, and regulatory compliance throughout the supply chain. Each shipment is assessed individually to ensure proper handling procedures are applied from origin to destination.
+                </p>
+                <p>
+                  Our operations team plans secure transport solutions by selecting suitable carriers, routes, and handling methods that minimize exposure and delays. Dedicated facilities and trained personnel ensure safe storage, monitoring, and controlled movement of sensitive cargo.
+                </p>
+              </div>
+            </div>
+            <div className="lg:w-1/2 h-[600px]">
+              <img src="https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover grayscale-[30%]" alt="Dangerous Goods Handling" />
+            </div>
+          </div>
+        </section>
 
         {/* Affiliated Companies */}
         <section className="py-24 bg-white border-y border-gray-100">

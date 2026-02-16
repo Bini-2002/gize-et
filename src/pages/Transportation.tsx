@@ -2,44 +2,54 @@
 import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import { Play, ChevronRight, Plus, ChevronLeft } from 'lucide-react';
+import heroImg from '../images/Transportation2.jpeg';
+import overviewImg from '../images/i44.jpg';
+import videoImg from '../images/i55.jpg';
+import cardImg1 from '../images/i21.jpg';
+import cardImg2 from '../images/i44.jpg';
+import cardImg3 from '../images/i222.jpg';
+import cardImg4 from '../images/i5.jpg';
+import studyImg1 from '../images/i33.jpg';
+import studyImg2 from '../images/i11.jpeg';
+import studyImg3 from '../images/i55.jpg';
 
 const Transportation: React.FC = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const serviceCards = [
-    { title: "Air Freight Services", img: "/src/images/i21.jpg" },
-    { title: "Road & Highway Transport", img: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=400" },
-    { title: "Intermodal Solutions", img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=400" },
-    { title: "Cross-Border Trucking", img: "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80&w=400" }
+    { title: "Air Freight Services", img: cardImg1 },
+    { title: "Road & Highway Transport", img: cardImg2 },
+    { title: "Intermodal Solutions", img: cardImg3 },
+    { title: "Cross-Border Trucking", img: cardImg4 }
   ];
 
   const caseStudies = [
     {
       id: 1,
       title: "Optimizing cross-border road transport between Ethiopia and Djibouti for 24-hour delivery cycles.",
-      img: "https://images.unsplash.com/photo-1590674852885-ce8245d98853?auto=format&fit=crop&q=80&w=600",
+      img: studyImg1,
       longDesc: "Streamlining the busiest trade corridor in East Africa through real-time fleet management and optimized route planning."
     },
     {
       id: 2,
       title: "Express air freight delivery for medical supplies during critical supply chain interruptions.",
-      img: "https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?auto=format&fit=crop&q=80&w=600",
+      img: studyImg2,
       longDesc: "When every second counts, Gize PLC delivers life-saving equipment through prioritized air-cargo handling and fast-track clearance."
     },
     {
       id: 3,
       title: "Sustainable electric fleet integration for urban last-mile distribution centers.",
-      img: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=600",
+      img: studyImg3,
       longDesc: "Implementing green logistics in metropolitan areas to reduce carbon footprint while maintaining high-efficiency distribution."
     }
   ];
 
   return (
     <div>
-      <Hero 
-        title="Transportation" 
+      <Hero
+        title="Transportation"
         subtitle="Reliable movements across all lanes and modalities"
-        image="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=1200"
+        image={heroImg}
       />
 
       <section className="py-24 bg-white">
@@ -47,10 +57,10 @@ const Transportation: React.FC = () => {
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2 relative">
               <div className="absolute -top-10 -left-10 w-full h-full bg-red-600 -z-10"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=800" 
-                className="w-full h-[400px] object-cover shadow-2xl" 
-                alt="Transport overview" 
+              <img
+                src={overviewImg}
+                className="w-full h-[400px] object-cover shadow-2xl"
+                alt="Transport overview"
               />
             </div>
             <div className="lg:w-1/2">
@@ -71,9 +81,9 @@ const Transportation: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
           <h2 className="text-4xl font-black text-blue-900 mb-4 uppercase tracking-tighter">Fleet in Motion</h2>
           <p className="text-gray-500 mb-12 max-w-2xl">Watch our operational teams manage complex multi-modal transitions at our central logistics hub.</p>
-          
+
           <div className="relative group overflow-hidden rounded-sm shadow-2xl h-[550px] cursor-pointer">
-            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Video cover" />
+            <img src={videoImg} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Video cover" />
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
               <button
                 className="w-24 h-24 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-red-600 transition-all border-2 border-white/30 shadow-2xl transform group-hover:scale-110"
@@ -91,11 +101,11 @@ const Transportation: React.FC = () => {
           <h2 className="text-6xl font-black text-white uppercase tracking-tighter mb-4">Discover Our Services</h2>
           <p className="text-white/80 font-bold uppercase tracking-widest text-sm">Efficient transport for every business need</p>
         </div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {serviceCards.map((item, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               onMouseEnter={() => setHoveredCard(i)}
               onMouseLeave={() => setHoveredCard(null)}
               className="relative h-80 overflow-hidden group shadow-2xl rounded-sm cursor-pointer"
@@ -112,11 +122,11 @@ const Transportation: React.FC = () => {
           <button className="text-white hover:text-blue-900 transition-all transform hover:scale-110" aria-label="Previous Slide">
             <ChevronLeft size={64} strokeWidth={3} />
           </button>
-          
+
           <div className="flex-grow h-4 bg-white/20 relative rounded-full overflow-hidden shadow-inner">
-            <div 
+            <div
               className="absolute top-0 h-full w-1/4 bg-blue-900 transition-all duration-500 ease-out rounded-full shadow-lg"
-              style={{ 
+              style={{
                 left: hoveredCard !== null ? `${hoveredCard * 25}%` : '0%',
                 opacity: hoveredCard !== null ? 1 : 0.3,
                 transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)'
@@ -136,7 +146,7 @@ const Transportation: React.FC = () => {
             <div key={study.id} className="relative group flex flex-col h-[580px] overflow-hidden shadow-2xl border border-gray-100 rounded-sm cursor-pointer">
               <div className="flex flex-col h-full bg-white transition-opacity duration-300 group-hover:opacity-0">
                 <div className="h-72 w-full overflow-hidden">
-                   <img src={study.img} className="h-full w-full object-cover" alt={study.title} />
+                  <img src={study.img} className="h-full w-full object-cover" alt={study.title} />
                 </div>
                 <div className="p-10 flex flex-col flex-grow justify-start">
                   <span className="text-red-500 font-black uppercase tracking-widest text-[11px] mb-8 block">CASE STUDIES</span>

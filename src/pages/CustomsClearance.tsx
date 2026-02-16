@@ -2,44 +2,53 @@
 import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import { Play, ChevronRight, Plus, ChevronLeft } from 'lucide-react';
+import heroImg from '../images/Custom_clearance.jpg';
+import overviewImg from '../images/cstom clerance.jpg';
+import cardImg1 from '../images/i1.jpeg';
+import cardImg2 from '../images/i11.jpeg';
+import cardImg3 from '../images/i5.jpg';
+import cardImg4 from '../images/i222.jpg';
+import studyImg1 from '../images/i33.jpg';
+import studyImg2 from '../images/i44.jpg';
+import studyImg3 from '../images/i55.jpg';
 
 const CustomsClearance: React.FC = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const serviceCards = [
-    { title: "Import/Export Documentation", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=400" },
-    { title: "Regulatory Compliance", img: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b?auto=format&fit=crop&q=80&w=400" },
-    { title: "Tariff & Duty Consulting", img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=400" },
-    { title: "Customs Bonded Services", img: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=80&w=400" }
+    { title: "Import/Export Documentation", img: cardImg1 },
+    { title: "Regulatory Compliance", img: cardImg2 },
+    { title: "Tariff & Duty Consulting", img: cardImg3 },
+    { title: "Customs Bonded Services", img: cardImg4 }
   ];
 
   const caseStudies = [
     {
       id: 1,
       title: "Streamlining duty exemptions for major infrastructure projects in industrial parks.",
-      img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=600",
+      img: studyImg1,
       longDesc: "Navigating complex regulatory frameworks to secure tax benefits for foreign direct investment projects in Ethiopia."
     },
     {
       id: 2,
       title: "Reducing average clearance time by 40% through digitized manifest filing systems.",
-      img: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b?auto=format&fit=crop&q=80&w=600",
+      img: studyImg2,
       longDesc: "Implementing advanced electronic data interchange (EDI) to accelerate border crossing and port release."
     },
     {
       id: 3,
       title: "Comprehensive trade audit and risk assessment for multinational logistics hubs.",
-      img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=600",
+      img: studyImg3,
       longDesc: "Ensuring zero-non-compliance through proactive auditing and strategic classification of global cargo."
     }
   ];
 
   return (
     <div>
-      <Hero 
-        title="Customs Clearance" 
+      <Hero
+        title="Customs Clearance"
         subtitle="Expert compliance for seamless international borders"
-        image="https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b?auto=format&fit=crop&q=80&w=1200"
+        image={heroImg}
       />
 
       <section className="py-24 bg-white">
@@ -47,10 +56,10 @@ const CustomsClearance: React.FC = () => {
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2 relative">
               <div className="absolute -top-10 -left-10 w-full h-full bg-red-600 -z-10"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b?auto=format&fit=crop&q=80&w=800" 
-                className="w-full h-[400px] object-cover shadow-2xl" 
-                alt="Customs overview" 
+              <img
+                src={overviewImg}
+                className="w-full h-[400px] object-cover shadow-2xl"
+                alt="Customs overview"
               />
             </div>
             <div className="lg:w-1/2">
@@ -72,11 +81,11 @@ const CustomsClearance: React.FC = () => {
           <h2 className="text-6xl font-black text-white uppercase tracking-tighter mb-4">Discover Our Services</h2>
           <p className="text-white/80 font-bold uppercase tracking-widest text-sm">Navigating compliance with precision</p>
         </div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {serviceCards.map((item, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               onMouseEnter={() => setHoveredCard(i)}
               onMouseLeave={() => setHoveredCard(null)}
               className="relative h-80 overflow-hidden group shadow-2xl rounded-sm cursor-pointer"
@@ -93,11 +102,11 @@ const CustomsClearance: React.FC = () => {
           <button className="text-white hover:text-blue-900 transition-all transform hover:scale-110" aria-label="Previous Slide">
             <ChevronLeft size={64} strokeWidth={3} />
           </button>
-          
+
           <div className="flex-grow h-4 bg-white/20 relative rounded-full overflow-hidden shadow-inner">
-            <div 
+            <div
               className="absolute top-0 h-full w-1/4 bg-blue-900 transition-all duration-500 ease-out rounded-full shadow-lg"
-              style={{ 
+              style={{
                 left: hoveredCard !== null ? `${hoveredCard * 25}%` : '0%',
                 opacity: hoveredCard !== null ? 1 : 0.3,
                 transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)'
@@ -117,7 +126,7 @@ const CustomsClearance: React.FC = () => {
             <div key={study.id} className="relative group flex flex-col h-[580px] overflow-hidden shadow-2xl border border-gray-100 rounded-sm cursor-pointer">
               <div className="flex flex-col h-full bg-white transition-opacity duration-300 group-hover:opacity-0">
                 <div className="h-72 w-full overflow-hidden">
-                   <img src={study.img} className="h-full w-full object-cover" alt={study.title} />
+                  <img src={study.img} className="h-full w-full object-cover" alt={study.title} />
                 </div>
                 <div className="p-10 flex flex-col flex-grow justify-start">
                   <span className="text-red-500 font-black uppercase tracking-widest text-[11px] mb-8 block">CASE STUDIES</span>

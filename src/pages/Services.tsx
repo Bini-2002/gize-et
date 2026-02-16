@@ -3,8 +3,11 @@ import Hero from '../components/Hero';
 import { SERVICES } from '../constants';
 import { ChevronRight, Plus } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 function Services() {
+    const [activeServiceIndex, setActiveServiceIndex] = useState(0);
+
   const caseStudies = [
       {
           title: "Enhancing connectivity with new multimodal ground and rail solution from Ethiopia to other countries",
@@ -33,9 +36,21 @@ function Services() {
       {/* Services Grid on Red Background */}
       <section className="py-24 bg-red-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-14">
+                        <h2 className="text-white font-black text-4xl lg:text-5xl tracking-tighter">Our Services</h2>
+                        <p className="mt-3 text-white/90 text-sm font-bold uppercase tracking-widest">
+                            Explore our core logistics solutions
+                        </p>
+                    </div>
+
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {SERVICES.map((s) => (
-                  <Link to={s.link} key={s.id} className="group relative bg-white h-[400px] overflow-hidden rounded-sm hover:scale-[1.02] transition-transform">
+                            {SERVICES.map((s, index) => (
+                                    <Link
+                                        to={s.link}
+                                        key={s.id}
+                                        className="group relative bg-white h-[400px] overflow-hidden rounded-sm hover:scale-[1.02] transition-transform"
+                                        onMouseEnter={() => setActiveServiceIndex(index)}
+                                    >
                       <img src={s.image} className="w-full h-full object-cover opacity-90 transition-all duration-500 group-hover:opacity-100" alt={s.title} />
                       <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
                       <div className="absolute bottom-10 left-6 right-6">
@@ -46,24 +61,29 @@ function Services() {
               ))}
            </div>
            
-           <div className="mt-12 flex justify-center gap-4">
-               <div className="flex gap-2">
-                   <span className="w-12 h-1 bg-white/20"></span>
-                   <span className="w-12 h-1 bg-blue-900"></span>
-                   <span className="w-12 h-1 bg-white/20"></span>
-               </div>
-           </div>
+                    <div className="mt-12 flex justify-center">
+                        <div className="relative h-1 w-44 bg-white/20 overflow-hidden">
+                            <div
+                                className="absolute top-0 left-0 h-full w-11 bg-[#0B1238] transition-transform duration-300"
+                                style={{ transform: `translateX(${activeServiceIndex * 44}px)` }}
+                            />
+                        </div>
+                    </div>
         </div>
       </section>
 
       {/* Case Studies Section */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
-            <h2 className="text-blue-900/10 text-6xl lg:text-8xl font-black absolute left-0 right-0 pointer-events-none -mt-8">CASE STUDIES</h2>
-            <p className="text-blue-900 text-sm font-bold uppercase tracking-widest relative z-10">
-                We collaborate with industry leaders and experts to deliver proven, real-world success stories.
-            </p>
-        </div>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+                    <div className="flex items-center justify-center gap-6">
+                        <span className="hidden sm:block h-px w-24 bg-gray-300" />
+                        <h2 className="text-red-600 text-3xl lg:text-4xl font-black tracking-tighter">Case Studies</h2>
+                        <span className="hidden sm:block h-px w-24 bg-gray-300" />
+                    </div>
+                    <p className="mt-4 text-blue-900 text-[11px] font-bold uppercase tracking-widest">
+                        We collaborate with industry leaders and experts to deliver proven, real-world success stories.
+                    </p>
+                </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
            {caseStudies.map((study) => (

@@ -7,6 +7,9 @@ import Services from './pages/Services';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
 import Shipping from './pages/Shipping';
+import Transportation from './pages/Transportation';
+import CustomsClearance from './pages/CustomsClearance';
+import PortHandling from './pages/PortHandling';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,6 +31,9 @@ export default function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/services/ocean-shipping" element={<Shipping />} />
+          <Route path="/services/transportation" element={<Transportation />} />
+          <Route path="/services/customs-clearance" element={<CustomsClearance />} />
+          <Route path="/services/port-handling" element={<PortHandling />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>

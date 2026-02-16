@@ -14,8 +14,7 @@ function Services() {
       {
           title: "Multi-modal transport solution for peak holiday season",
           image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=800",
-          id: 2,
-          featured: true
+          id: 2
       },
       {
           title: "Leveraging electric vehicle for 5,000 kilometer long-haul transport in China",
@@ -68,16 +67,14 @@ function Services() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
            {caseStudies.map((study) => (
-               <div key={study.id} className={`flex flex-col group ${study.featured ? 'scale-105 z-10' : ''}`}>
+               <div key={study.id} className="flex flex-col group transition-transform hover:scale-105 hover:z-10">
                    <div className="h-64 relative overflow-hidden">
                        <img src={study.image} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt={study.title} />
-                       {study.featured && (
-                            <div className="absolute bottom-0 right-0 bg-red-600 p-4 text-white">
-                                <Plus size={32} />
-                            </div>
-                       )}
+                       <div className="absolute bottom-0 right-0 bg-red-600 p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                           <Plus size={32} />
+                       </div>
                    </div>
-                   <div className={`p-8 shadow-2xl flex-grow flex flex-col justify-between ${study.featured ? 'bg-red-600 text-white' : 'bg-white text-blue-900'}`}>
+                   <div className="p-8 shadow-2xl flex-grow flex flex-col justify-between bg-white text-blue-900 transition-colors duration-300 group-hover:bg-red-600 group-hover:text-white">
                        <div>
                            <span className="text-[10px] font-bold uppercase tracking-widest mb-4 block">CASE STUDIES</span>
                            <h4 className="text-xl font-black leading-tight mb-6">{study.title}</h4>

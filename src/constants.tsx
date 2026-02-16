@@ -1,3 +1,8 @@
+import transportationImg from './images/Transportation2.jpeg';
+import customsClearanceImg from './images/Custom_clearance.jpg';
+import shippingImg from './images/Shipping_2.jpeg';
+import portHandlingImg from './images/Port_handling.jpeg';
+
 export const COLORS = {
   primary: '#EF4444', // Red-500
   secondary: '#1E293B', // Slate-800
@@ -9,28 +14,28 @@ export const SERVICES = [
     id: 'transportation',
     title: 'Transportation',
     description: 'Reliable and efficient logistics solutions across air, ocean, and overland freight.',
-    image: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=800',
+    image: transportationImg,
     link: '#'
   },
   {
     id: 'customs',
     title: 'Customs Clearance',
     description: 'Expert guidance and efficient processing for all your international trade compliance needs.',
-    image: 'https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b?auto=format&fit=crop&q=80&w=800',
+    image: customsClearanceImg,
     link: '#'
   },
   {
     id: 'shipping',
     title: 'Shipping',
     description: 'Connecting global markets with tailored sea and air freight strategies.',
-    image: 'https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80&w=800',
+    image: shippingImg,
     link: '/services/ocean-shipping'
   },
   {
     id: 'port',
     title: 'Port Handling',
     description: 'Comprehensive yard management and cargo consolidation at strategic hubs.',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800',
+    image: portHandlingImg,
     link: '#'
   }
 ];

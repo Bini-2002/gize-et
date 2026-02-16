@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, type MouseEvent as ReactMouseEvent } from 'react';
 import { ChevronRight, ChevronLeft, Plus, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SERVICES } from '../constants';
@@ -6,7 +6,7 @@ import heroI2 from "../images/i2.jpeg";
 import heroI3 from "../images/i21.jpg";
 import heroI5 from "../images/i5.jpg";
 
-const Home: React.FC = () => {
+const Home = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -84,7 +84,7 @@ const Home: React.FC = () => {
   };
 
   // Function to toggle image for a specific card
-  const toggleImage = (index: number, e: React.MouseEvent) => {
+  const toggleImage = (index: number, e: ReactMouseEvent) => {
     e.preventDefault(); // Prevent navigation if inside Link
     e.stopPropagation();
     setCardImageIndices(prev => {

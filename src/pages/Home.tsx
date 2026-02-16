@@ -163,10 +163,17 @@ const Home = () => {
             {/* Slider Controls & Progress Bar */}
             <div className="absolute bottom-12 right-12 flex items-center gap-10 z-20">
               <div className="flex gap-4">
-                <button onClick={handlePrev} className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border-2 border-white/40 flex items-center justify-center text-white hover:bg-red-600 hover:border-red-600 transition-all">
+                <button
+                  onClick={handlePrev}
+                  className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border-2 border-white/40 flex items-center justify-center text-white hover:bg-red-600 hover:border-red-600 transition-all"
+                  title="Previous Slide"
+                >
                   <ChevronLeft size={24} />
                 </button>
-                <button onClick={handleNext} className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border-2 border-white/40 flex items-center justify-center text-white hover:bg-red-600 hover:border-red-600 transition-all">
+                <button 
+                onClick={handleNext} 
+                className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border-2 border-white/40 flex items-center justify-center text-white hover:bg-red-600 hover:border-red-600 transition-all"
+                title="Next Slide">
                   <ChevronRight size={24} />
                 </button>
               </div>

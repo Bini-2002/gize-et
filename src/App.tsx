@@ -6,7 +6,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
-import OceanShipping from './pages/Shipping';
+import Shipping from './pages/Shipping';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -27,7 +27,7 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/services/ocean-shipping" element={<OceanShipping />} />
+          <Route path="/services/ocean-shipping" element={<Shipping />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>

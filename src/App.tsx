@@ -6,7 +6,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
-import OceanShipping from './pages/OceanShipping';
+import OceanShipping from './pages/Shipping';
 
 function ScrollToTop() {
   const { pathname } = useLocation();

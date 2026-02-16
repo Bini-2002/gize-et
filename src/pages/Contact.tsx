@@ -4,8 +4,8 @@ import { MapPin, Clock, Phone, ArrowRight } from 'lucide-react';
 function Contact() {
   return (
     <div>
-      <Hero 
-        title="Contact us" 
+      <Hero
+        title="Contact us"
         image="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200"
       />
 
@@ -29,70 +29,66 @@ function Contact() {
             {/* Right: Three cards in a row */}
             <div className="lg:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Official Location */}
-              <div className="bg-red-500 text-white p-6 rounded-sm shadow-xl flex flex-col items-start group">
-                <MapPin className="mb-3" size={28} />
-                <h4 className="text-lg font-black mb-1 uppercase">Official Location</h4>
-                <p className="text-white/80 text-sm mb-3">Rwanda St, Addis Ababa, Around Wolo Sefer</p>
-                <a href="#" className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:translate-x-2 transition-transform">
+              <div className="bg-[#FF4A4A] text-white p-6 rounded-sm shadow-2xl flex flex-col items-start group hover:-translate-y-2 transition-transform duration-300">
+                <MapPin className="mb-4" size={32} strokeWidth={1.5} />
+                <h4 className="text-xl font-bold mb-2 uppercase tracking-tight">Official Location</h4>
+                <p className="text-white/90 text-sm mb-6 font-medium leading-relaxed">Rwanda St, Addis Ababa, Around Wolo Sefer</p>
+                <a href="#" className="mt-auto flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] hover:opacity-80 transition-opacity">
                   Direction <ArrowRight size={14} />
                 </a>
               </div>
 
               {/* Working Hours */}
-              <div className="bg-red-500 text-white p-6 rounded-sm shadow-xl flex flex-col items-start group">
-                <Clock className="mb-3" size={28} />
-                <h4 className="text-lg font-black mb-1 uppercase">Working Hours</h4>
-                <p className="text-white/80 text-sm mb-1">Mon - Fri : 3am - 5pm</p>
-                <p className="text-white/80 text-sm mb-3">Sat : 3am - 12pm</p>
-                <a href="#" className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:translate-x-2 transition-transform">
+              <div className="bg-[#FF4A4A] text-white p-6 rounded-sm shadow-2xl flex flex-col items-start group hover:-translate-y-2 transition-transform duration-300">
+                <Clock className="mb-4" size={32} strokeWidth={1.5} />
+                <h4 className="text-xl font-bold mb-2 uppercase tracking-tight">Working Hours</h4>
+                <p className="text-white/90 text-sm mb-1 font-medium">Mon - Fri : 3am - 5pm</p>
+                <p className="text-white/90 text-sm mb-6 font-medium">Sat : 3am - 12pm</p>
+                <a href="#" className="mt-auto flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] hover:opacity-80 transition-opacity">
                   Learn more <ArrowRight size={14} />
                 </a>
               </div>
 
               {/* Call */}
-              <div className="bg-red-500 text-white p-6 rounded-sm shadow-xl flex flex-col items-start group">
-                <Phone className="mb-3" size={28} />
-                <h4 className="text-lg font-black mb-1 uppercase">Call</h4>
-                <p className="text-white/80 text-sm mb-1">+251-911-201-001</p>
-                <p className="text-white/80 text-sm mb-3">gizeplc@gmail.com</p>
-                <a href="#" className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:translate-x-2 transition-transform">
+              <div className="bg-[#FF4A4A] text-white p-6 rounded-sm shadow-2xl flex flex-col items-start group hover:-translate-y-2 transition-transform duration-300">
+                <Phone className="mb-4" size={32} strokeWidth={1.5} />
+                <h4 className="text-xl font-bold mb-2 uppercase tracking-tight">Call</h4>
+                <p className="text-white/90 text-sm mb-1 font-medium">+251-911-201-001</p>
+                <p className="text-white/90 text-sm mb-6 font-medium">gizeplc@gmail.com</p>
+                <a href="#" className="mt-auto flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] hover:opacity-80 transition-opacity">
                   Call Now <ArrowRight size={14} />
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Form & Info Section (unchanged) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Form Column */}
-            <div className="lg:col-span-8 bg-red-600 rounded-lg p-12 lg:p-20 shadow-2xl relative">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div className="bg-white p-10 rounded shadow-2xl">
-                  <form className="space-y-6">
-                    <div>
-                      <input type="text" placeholder="Your Name" className="w-full p-4 bg-gray-50 border border-gray-100 rounded focus:ring-2 focus:ring-red-500 outline-none font-bold" />
-                    </div>
-                    <div>
-                      <input type="email" placeholder="Your Email" className="w-full p-4 bg-gray-50 border border-gray-100 rounded focus:ring-2 focus:ring-red-500 outline-none font-bold" />
-                    </div>
-                    <div>
-                      <textarea rows={6} placeholder="Message" className="w-full p-4 bg-gray-50 border border-gray-100 rounded focus:ring-2 focus:ring-red-500 outline-none font-bold resize-none"></textarea>
-                    </div>
-                    <button className="bg-blue-900 text-white px-8 py-4 font-black uppercase tracking-widest rounded hover:bg-[#0B1238] transition-all w-full lg:w-auto">
-                      Send Message
-                    </button>
-                  </form>
-                </div>
-                
-                <div className="text-white">
-                  <span className="text-xl font-bold block mb-4">Have any questions?</span>
-                  <h3 className="text-6xl lg:text-8xl font-black uppercase tracking-tighter leading-none">Contact Us</h3>
-                </div>
+          {/* Form & Info Section */}
+          <div className="bg-[#FF4A4A] rounded-sm p-8 lg:p-12 shadow-2xl relative max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              {/* White Form Card */}
+              <div className="bg-white p-8 lg:p-10 shadow-2xl">
+                <form className="space-y-5">
+                  <div>
+                    <input type="text" placeholder="Your Name" className="w-full p-4 bg-gray-50 border-b-2 border-gray-200 focus:border-red-500 outline-none font-medium placeholder-gray-400 text-gray-700 transition-colors" />
+                  </div>
+                  <div>
+                    <input type="email" placeholder="Your Email" className="w-full p-4 bg-gray-50 border-b-2 border-gray-200 focus:border-red-500 outline-none font-medium placeholder-gray-400 text-gray-700 transition-colors" />
+                  </div>
+                  <div>
+                    <textarea rows={4} placeholder="Message" className="w-full p-4 bg-gray-50 border-b-2 border-gray-200 focus:border-red-500 outline-none font-medium placeholder-gray-400 text-gray-700 resize-none transition-colors"></textarea>
+                  </div>
+                  <button className="bg-[#0B1238] text-white px-8 py-4 font-bold rounded hover:bg-blue-900 transition-all w-full lg:w-auto shadow-lg">
+                    Send Message
+                  </button>
+                </form>
+              </div>
+
+              {/* Right Side Text */}
+              <div className="text-white flex flex-col justify-center">
+                <span className="text-xl font-medium mb-2 opacity-90">Have any questions?</span>
+                <h3 className="text-5xl lg:text-7xl font-black uppercase tracking-tighter leading-none">Contact Us</h3>
               </div>
             </div>
-
-            {/* Empty placeholder for symmetry */}
-            <div className="lg:col-span-4 hidden lg:block"></div>
           </div>
         </div>
       </section>

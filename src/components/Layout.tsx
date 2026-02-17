@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Linkedin, Facebook } from 'lucide-react';
+import { Linkedin, Facebook, Menu, X } from 'lucide-react';
 
 // Custom X (Twitter) Icon Component
 const XIcon = ({ size = 14 }: { size?: number }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
     <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
   </svg>
 );
@@ -38,16 +33,8 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navLinks = [
     { name: 'HOME', path: '/' },
@@ -57,6 +44,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     { name: 'CONTACT US', path: '/contact' },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* HEADER */}
@@ -65,39 +58,62 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center">
-            <Link to="/" className="flex items-center gap-2">
-              <img
-                src="/gize-logo.png"
-                alt="Gize PLC Logo"
-                className="h-10 object-contain"
-              />
-            </Link>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          <Link to="/" className="flex items-center gap-2">
+            <img src="/gize-logo.png" alt="Gize PLC Logo" className="h-10 object-contain" />
+          </Link>
 
-            <nav className="hidden md:flex space-x-6">
+          {/* DESKTOP NAV */}
+          <nav className="hidden md:flex space-x-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`text-[10px] font-bold tracking-wider transition-colors hover:text-[#E31B23] ${
+                  location.pathname === link.path
+                    ? 'text-[#E31B23]'
+                    : isScrolled
+                    ? 'text-[#0B1238]'
+                    : 'text-white'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+
+          {/* MOBILE MENU TOGGLE */}
+          <button
+            className="md:hidden p-2 text-white"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+
+        {/* MOBILE NAV LINKS */}
+        {mobileOpen && (
+          <nav className="md:hidden bg-white shadow-md w-full absolute top-full left-0 z-40 animate-slide-down">
+            <div className="flex flex-col px-4 py-4 space-y-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`text-[10px] font-bold tracking-wider transition-colors hover:text-[#E31B23] ${
-                    location.pathname === link.path
-                      ? 'text-[#E31B23]'
-                      : isScrolled
-                      ? 'text-[#0B1238]'
-                      : 'text-white'
+                  onClick={() => setMobileOpen(false)}
+                  className={`text-[#0B1238] font-bold tracking-wider py-2 px-2 rounded hover:bg-[#E31B23] hover:text-white transition-colors ${
+                    location.pathname === link.path ? 'bg-[#E31B23] text-white' : ''
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
-            </nav>
-          </div>
-        </div>
+            </div>
+          </nav>
+        )}
       </header>
 
-      {/* MAIN */}
-      <main className="flex-grow">{children}</main>
+      {/* MAIN CONTENT */}
+      <main className="flex-grow mt-16 md:mt-0">{children}</main>
 
       {/* FOOTER */}
       <footer className="bg-[#0B1238] text-white pt-10 pb-0 overflow-hidden relative">
@@ -107,11 +123,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="grid grid-cols-1 lg:grid-cols-3 items-center">
             {/* LEFT */}
             <div className="flex flex-col items-center lg:items-start shrink-0 mb-8 lg:mb-0">
-              <img
-                src="/gize-logo.png"
-                alt="Gize Logo"
-                className="h-14 object-contain"
-              />
+              <img src="/gize-logo.png" alt="Gize Logo" className="h-14 object-contain" />
               <p className="text-gray-400 text-[7px] uppercase tracking-[0.2em] mt-1">
                 Private Limited Company
               </p>
@@ -123,7 +135,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <span className="text-[#E31B23] font-bold text-base tracking-tighter uppercase">
                   WE CONNECT
                 </span>
-
                 <div className="flex flex-col font-medium text-xl lg:text-3xl leading-snug text-gray-100 italic tracking-wide">
                   <span>PEOPLE</span>
                   <span>RESOURCE</span>
@@ -161,11 +172,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <span className="text-gray-500 font-bold uppercase tracking-widest text-xs">
                 Follow US
               </span>
-
-              <span className="font-black text-lg text-[#0B1238]">
-                # GIZE PLC
-              </span>
-
+              <span className="font-black text-lg text-[#0B1238]"># GIZE PLC</span>
               <div className="flex gap-1.5">
                 {[
                   { icon: <Linkedin size={14} className="text-white" />, href: '#' },

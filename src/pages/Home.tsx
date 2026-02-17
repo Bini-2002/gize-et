@@ -6,6 +6,12 @@ import heroI2 from "../images/i2.jpeg";
 import heroI3 from "../images/i21.jpg";
 import heroI5 from "../images/i5.jpg";
 
+// --- PARTNER LOGO IMPORTS ---
+import haeLogo from "../images/partners/hae-group.png";
+import iataLogo from "../images/partners/iata.png";
+import dhlLogo from "../images/partners/dhl.png";
+import fedexLogo from "../images/partners/fedex.png";
+
 const Home = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -98,7 +104,7 @@ const Home = () => {
     <div className="bg-white relative">
       {/* Fixed Sidebar - reduced width */}
       <aside className="fixed left-0 top-0 w-16 lg:w-20 h-screen flex flex-col items-center pt-48 gap-16 bg-[#0B1238] shadow-2xl z-50">
-        <div className="w-[4px] bg-red-600 h-full absolute left-0 top-0"></div>
+        <div className="w-1 bg-red-600 h-full absolute left-0 top-0"></div>
 
         <button className="flex flex-col items-center group transition-all">
           <div className="p-1 transition-transform group-hover:scale-110">
@@ -366,20 +372,19 @@ const Home = () => {
         </section>
 
         {/* Affiliated Companies */}
-        <section className="py-24 bg-white border-y border-gray-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <span className="text-gray-400 font-bold uppercase tracking-widest text-sm">With US</span>
-              <h2 className="text-red-600 font-black text-3xl uppercase tracking-widest mt-4">Affiliated Companies</h2>
-            </div>
-            <div className="flex flex-wrap justify-center items-center gap-20">
-              <img src="https://logodownload.org/wp-content/uploads/2014/10/dhl-logo-0.png" className="h-10 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" alt="DHL" />
-              <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/IATA_Logo.svg/1280px-IATA_Logo.svg.png" className="h-12 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" alt="IATA" />
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/FedEx_Corporation_-_Logo.svg/1280px-FedEx_Corporation_-_Logo.svg.png" className="h-10 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" alt="FedEx" />
-              <div className="text-4xl font-black text-gray-300 tracking-tighter"># HAE</div>
-            </div>
-          </div>
-        </section>
+         {/* --- AFFILIATED COMPANIES --- */}
+      <section className="py-24 bg-white text-center">
+        <div className="mb-16">
+          <span className="text-gray-400 text-xs font-black uppercase tracking-[0.6em]">With Us</span>
+          <h2 className="text-2xl font-black text-[#E31B23] uppercase mt-4 tracking-tighter italic">Affiliated Companies</h2>
+        </div>
+        <div className="flex flex-wrap justify-center gap-16 items-center px-10 mb-20 opacity-80">
+          <img src={haeLogo} alt="HAE Group" className="h-8 object-contain" />
+          <img src={iataLogo} alt="IATA" className="h-10 object-contain" />
+          <img src={dhlLogo} alt="DHL" className="h-6 object-contain" />
+          <img src={fedexLogo} alt="FedEx" className="h-8 object-contain" />
+        </div>
+      </section>
       </div>
     </div>
   );

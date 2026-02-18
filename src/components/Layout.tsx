@@ -60,7 +60,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2">
-            <img src="/gize-logo.png" alt="Gize PLC Logo" className="h-10 object-contain" />
+            <img src="/gize-logo.png" alt="Gize PLC Logo" className="h-16 object-contain" />
           </Link>
 
           {/* DESKTOP NAV */}

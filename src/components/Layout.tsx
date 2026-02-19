@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Linkedin, Facebook, Menu, X } from 'lucide-react';
 
+// Import the two triangle images
+import callCenter1 from '../images/call-center1.jpg';
+import callCenter2 from '../images/call-center2.jpg';
+
 // Custom X (Twitter) Icon Component
 const XIcon = ({ size = 14 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -60,7 +64,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2">
-            <img src="/gize-logo.png" alt="Gize PLC Logo" className="h-16 object-contain" />
+            <img src="/gize-logo.png" alt="Gize PLC Logo" className="h-10 object-contain" />
           </Link>
 
           {/* DESKTOP NAV */}
@@ -120,7 +124,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="absolute bottom-0 left-0 w-2 h-12 bg-[#E31B23] z-20"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 items-start">
             {/* LEFT */}
             <div className="flex flex-col items-center lg:items-start shrink-0 mb-8 lg:mb-0">
               <img src="/gize-logo.png" alt="Gize Logo" className="h-14 object-contain" />
@@ -152,13 +156,26 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </Link>
             </div>
 
-            {/* RIGHT */}
-            <div className="flex justify-center lg:justify-end shrink-0">
-              <div className="w-48 h-48 lg:w-56 lg:h-56">
+            {/* RIGHT - images wide with a reduced gap */}
+            <div className="flex justify-end self-end w-full">
+              <div className="flex gap-2 items-end h-40 lg:h-56 w-[150%]">
                 <img
-                  src="/globe.png"
-                  alt="Globe"
-                  className="w-full h-full object-contain animate-spin-slow opacity-90"
+                  src={callCenter1}
+                  alt=""
+                  className="w-1/2 h-full object-cover"
+                  style={{
+                    clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+                    maxWidth: 'none',
+                  }}
+                />
+                <img
+                  src={callCenter2}
+                  alt=""
+                  className="w-1/2 h-full object-cover"
+                  style={{
+                    clipPath: 'polygon(0% 0%, 100% 0%, 50% 100%)',
+                    maxWidth: 'none',
+                  }}
                 />
               </div>
             </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect, type MouseEvent as ReactMouseEvent } from 'react';
-import { ChevronRight, ChevronLeft, Plus, Check } from 'lucide-react'; // Added Check import
+import { ChevronRight, ChevronLeft, Plus, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SERVICES } from '../constants';
 import heroI2 from "../images/i2.jpeg";
@@ -53,7 +53,6 @@ const Home = () => {
     }
   ];
 
-  // Fixed additionalServices with required img and items
   const additionalServices = [
     {
       name: 'GIZE PLC - LOGISTICS & FREIGHT STATION',
@@ -197,23 +196,14 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Experience Section – red background extends to top and left on desktop */}
+        {/* Experience Section */}
         <section className="py-24 relative bg-white overflow-hidden">
-          {/* Absolute red background (desktop only) – now 1/3 width */}
           <div className="hidden lg:block absolute inset-y-0 left-0 w-1/3 bg-red-600 z-0"></div>
-
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
-              {/* Left column – red on mobile, transparent on desktop */}
               <div className="lg:col-span-5 bg-red-600 lg:bg-transparent flex items-center justify-center p-20">
-                <img
-                  src={heroI3}
-                  className="w-[700px] h-[600px] object-cover shadow-2xl"
-                  alt="Logistics"
-                />
+                <img src={heroI3} className="w-[700px] h-[600px] object-cover shadow-2xl" alt="Logistics" />
               </div>
-
-              {/* Right column – white background */}
               <div className="lg:col-span-7 bg-white p-12 lg:p-16 flex flex-col justify-center">
                 <span className="text-red-600 font-black uppercase tracking-widest text-xs mb-4 block">ABOUT GIZE PLC</span>
                 <h2 className="text-3xl lg:text-4xl font-black text-blue-900 mb-6 leading-tight uppercase">
@@ -238,7 +228,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Services Section - with plus icon on cards, positioned bottom right */}
+        {/* Services Section - with image background for commitment and local images for cards */}
         <section className="py-20 bg-gray-50 border-y border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-14">
@@ -253,19 +243,43 @@ const Home = () => {
 
           <div className="max-w-7xl mx-auto">
             <div className="lg:grid lg:grid-cols-12 lg:gap-0 flex flex-col gap-8">
-              <div className="lg:col-span-4 bg-[#0B1238] text-white p-10 flex flex-col justify-center border-l-8 border-red-600 shadow-xl h-full">
-                <h3 className="text-3xl font-black mb-6 uppercase">Our Commitment</h3>
-                <p className="text-white/90 leading-relaxed text-lg mb-6">
-                  At GIZE PLC, we prioritize building long-term relationships through exceptional service and professional logistics handling.
-                </p>
-                <p className="text-white/80 leading-relaxed">
-                  We ensure safe, fast, and secure cargo movement with modern infrastructure and dedicated experts.
-                </p>
+              {/* Commitment Column – now with background image */}
+              <div className="lg:col-span-4 relative h-full overflow-hidden group">
+                <img 
+                  src={commitmentImg} 
+                  className="absolute inset-0 w-full h-full object-cover" 
+                  alt="Our Commitment" 
+                />
+                <div className="absolute inset-0 bg-[#0B1238]/60 group-hover:bg-[#0B1238]/40 transition-all"></div>
+                <div className="relative h-full flex flex-col justify-center p-10 text-white z-10">
+                  <h3 className="text-3xl font-black mb-6 uppercase border-b-2 border-red-600 pb-2 w-fit">
+                    Our Commitment
+                  </h3>
+                  <p className="text-white/90 leading-relaxed text-lg mb-6">
+                    At GIZE PLC, we prioritize building long-term relationships through exceptional service and professional logistics handling.
+                  </p>
+                  <p className="text-white/80 leading-relaxed">
+                    We ensure safe, fast, and secure cargo movement with modern infrastructure and dedicated experts.
+                  </p>
+                  <div className="absolute bottom-6 right-6 bg-red-600 w-10 h-10 flex items-center justify-center">
+                    <Plus size={24} />
+                  </div>
+                </div>
               </div>
 
+              {/* Service Cards – now using local images as primary */}
               <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-0">
                 {SERVICES.map((service, idx) => {
-                  const imageSrc = cardImageIndices[idx] === 0 ? service.image : secondaryImages[idx % secondaryImages.length];
+                  // Map service titles to local images
+                  const localImageMap: Record<string, string> = {
+                    'Transportation': transportationImg,
+                    'Customs Clearance': customClearanceImg,
+                    'Air Freight': shippingImg,
+                    'Port Handling': warehouseImg,
+                  };
+                  const localImage = localImageMap[service.title] || service.image; // fallback if needed
+                  const imageSrc = cardImageIndices[idx] === 0 ? localImage : secondaryImages[idx % secondaryImages.length];
+
                   return (
                     <Link to={service.link} key={service.id} className="group relative flex flex-col h-full overflow-hidden shadow-2xl block">
                       <img src={imageSrc} alt={service.title} className="w-full h-full object-cover flex-1 transition-transform duration-1000 group-hover:scale-105" />
@@ -328,27 +342,27 @@ const Home = () => {
 
         {/* Hazardous Cargo Section */}
         <section className="bg-gray-100 overflow-hidden">
-  <div className="max-w-7xl mx-auto flex flex-col lg:flex-row">
-    <div className="lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center">
-      <h2 className="text-red-600 font-black text-4xl mb-10 uppercase leading-tight tracking-tighter">Hazardous Cargo Management</h2>
-      <div className="space-y-6 text-gray-700 text-lg font-medium leading-relaxed">
-        <p>
-          Gize PLC provides specialized logistics support for hazardous and regulated cargo, focusing on safety, risk control, and regulatory compliance throughout the supply chain.
-        </p>
-        <p>
-          Our operations team plans secure transport solutions by selecting suitable carriers, routes, and handling methods that minimize exposure and delays. Dedicated facilities and trained personnel ensure safe storage, monitoring, and controlled movement of sensitive cargo.
-        </p>
-      </div>
-    </div>
-    <div className="lg:w-1/2 h-[500px]">
-      <img 
-        src={hazardousImg} 
-        className="w-full h-full object-cover grayscale-[30%]" 
-        alt="Dangerous Goods Handling" 
-      />
-    </div>
-  </div>
-</section>
+          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row">
+            <div className="lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center">
+              <h2 className="text-red-600 font-black text-4xl mb-10 uppercase leading-tight tracking-tighter">Hazardous Cargo Management</h2>
+              <div className="space-y-6 text-gray-700 text-lg font-medium leading-relaxed">
+                <p>
+                  Gize PLC provides specialized logistics support for hazardous and regulated cargo, focusing on safety, risk control, and regulatory compliance throughout the supply chain.
+                </p>
+                <p>
+                  Our operations team plans secure transport solutions by selecting suitable carriers, routes, and handling methods that minimize exposure and delays. Dedicated facilities and trained personnel ensure safe storage, monitoring, and controlled movement of sensitive cargo.
+                </p>
+              </div>
+            </div>
+            <div className="lg:w-1/2 h-[500px]">
+              <img 
+                src={hazardousImg} 
+                className="w-full h-full object-cover grayscale-[30%]" 
+                alt="Dangerous Goods Handling" 
+              />
+            </div>
+          </div>
+        </section>
 
         {/* Affiliated Companies */}
         <section className="py-24 bg-white text-center">

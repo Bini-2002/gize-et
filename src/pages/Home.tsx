@@ -1,5 +1,5 @@
 import { useState, useEffect, type MouseEvent as ReactMouseEvent } from 'react';
-import { ChevronRight, ChevronLeft, Plus, CheckCircle2 } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Plus, Check } from 'lucide-react'; // Added Check import
 import { Link } from 'react-router-dom';
 import { SERVICES } from '../constants';
 import heroI2 from "../images/i2.jpeg";
@@ -53,22 +53,31 @@ const Home = () => {
     }
   ];
 
+  // Fixed additionalServices with required img and items
   const additionalServices = [
     {
       name: 'GIZE PLC - LOGISTICS & FREIGHT STATION',
-      content: 'Gize PLC operates a Consolidated Freight Station (CFS) at the Modjo Dry Port, located approximately 40 kilometers from Addis Ababa. The facility covers an area of 1,000 square meters and is equipped with three loading docks, enabling efficient handling, storage, and movement of cargo.'
+      content: 'Gize PLC operates a Consolidated Freight Station (CFS) at the Modjo Dry Port, located approximately 40 kilometers from Addis Ababa. The facility covers an area of 1,000 square meters and is equipped with three loading docks, enabling efficient handling, storage, and movement of cargo.',
+      img: warehouseImg,
+      items: ['1,000 sqm facility', 'Three loading docks', 'Located at Modjo Dry Port', 'Efficient cargo handling']
     },
     {
       name: 'PACKING & MOVING SERVICES',
-      content: 'Professional packing and secure relocation services for corporate and private assets. Our team handles your valuables with the utmost care and professional standards, ensuring safe transit to any destination.'
+      content: 'Professional packing and secure relocation services for corporate and private assets. Our team handles your valuables with the utmost care and professional standards, ensuring safe transit to any destination.',
+      img: transportationImg,
+      items: ['Professional packing materials', 'Secure relocation', 'Asset protection', 'Trained handling team']
     },
     {
       name: 'STORAGE & WAREHOUSING SERVICES',
-      content: 'Secure climate-controlled facilities for long-term and transit storage needs. We provide real-time inventory tracking and comprehensive security for all stored items, giving you complete peace of mind.'
+      content: 'Secure climate-controlled facilities for long-term and transit storage needs. We provide real-time inventory tracking and comprehensive security for all stored items, giving you complete peace of mind.',
+      img: warehouseImg,
+      items: ['Climate-controlled facilities', 'Real-time inventory tracking', '24/7 security', 'Flexible lease terms']
     },
     {
       name: 'FAST CARGO SERVICES',
-      content: 'Time-critical logistics for urgent shipments across the globe. When every second counts, Gize PLC delivers your cargo ahead of schedule with our specialized fast-track cargo handling systems.'
+      content: 'Time-critical logistics for urgent shipments across the globe. When every second counts, Gize PLC delivers your cargo ahead of schedule with our specialized fast-track cargo handling systems.',
+      img: shippingImg,
+      items: ['Time-critical logistics', 'Fast-track handling', 'Global coverage', 'Priority clearance']
     }
   ];
 
@@ -188,140 +197,130 @@ const Home = () => {
           </div>
         </section>
 
-        
-       {/* Experience Section – red background extends to top and left on desktop */}
-<section className="py-24 relative bg-white overflow-hidden">
-  {/* Absolute red background (desktop only) – now 1/3 width */}
-  <div className="hidden lg:block absolute inset-y-0 left-0 w-1/3 bg-red-600 z-0"></div>
+        {/* Experience Section – red background extends to top and left on desktop */}
+        <section className="py-24 relative bg-white overflow-hidden">
+          {/* Absolute red background (desktop only) – now 1/3 width */}
+          <div className="hidden lg:block absolute inset-y-0 left-0 w-1/3 bg-red-600 z-0"></div>
 
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
-      {/* Left column – red on mobile, transparent on desktop */}
-      <div className="lg:col-span-5 bg-red-600 lg:bg-transparent flex items-center justify-center p-20">
-      <img
-  src={heroI3}
-  className="w-[700px] h-[600px] object-cover shadow-2xl"
-  alt="Logistics"
-/>
-      </div>
-
-      {/* Right column – white background */}
-      <div className="lg:col-span-7 bg-white p-12 lg:p-16 flex flex-col justify-center">
-        <span className="text-red-600 font-black uppercase tracking-widest text-xs mb-4 block">ABOUT GIZE PLC</span>
-        <h2 className="text-3xl lg:text-4xl font-black text-blue-900 mb-6 leading-tight uppercase">
-          Gize PLC has built nearly Twelve years of experience delivering comprehensive logistics solutions in Ethiopia
-        </h2>
-        <div className="space-y-6 text-gray-700 text-lg font-medium leading-relaxed">
-          <p>
-            Gize PLC specializes in delivering personalized and efficient logistics solutions across air, ocean, and overland freight, complemented by expert customs clearance. We eliminate supply chain friction by offering tailored, end-to-end strategies that focus on compliance, risk reduction, and operational optimization for every client.
-          </p>
-          <p>
-            With a dedicated team and a modern fleet, we transform complex shipping challenges into seamless experiences. We are committed to empowering your business by providing the reliable, fast, and secure movement of your cargo.
-          </p>
-        </div>
-        <Link
-          to="/about"
-          className="mt-8 bg-red-600 hover:bg-red-700 text-white px-10 py-4 font-black shadow-xl inline-flex items-center gap-3 self-start transition-all uppercase tracking-widest text-sm"
-        >
-          See detail <ChevronRight size={20} />
-        </Link>
-      </div>
-    </div>
-  </div>
-</section>
-
-     {/* Services Section - with plus icon on cards, positioned bottom right */}
-<section className="py-20 bg-gray-50 border-y border-gray-100">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-14">
-      <h2 className="text-5xl font-black text-blue-900 mb-4 uppercase">Our Services</h2>
-      <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
-      <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-        Gize Logistics PLC delivers the knowledge and opportunities needed to optimize every mile on every lane. 
-        We provide full-service transportation, shipping, port handling, and customs clearance solutions.
-      </p>
-    </div>
-  </div>
-
-  <div className="max-w-7xl mx-auto">
-    <div className="lg:grid lg:grid-cols-12 lg:gap-0 flex flex-col gap-8">
-      <div className="lg:col-span-4 bg-[#0B1238] text-white p-10 flex flex-col justify-center border-l-8 border-red-600 shadow-xl h-full">
-        <h3 className="text-3xl font-black mb-6 uppercase">Our Commitment</h3>
-        <p className="text-white/90 leading-relaxed text-lg mb-6">
-          At GIZE PLC, we prioritize building long-term relationships through exceptional service and professional logistics handling.
-        </p>
-        <p className="text-white/80 leading-relaxed">
-          We ensure safe, fast, and secure cargo movement with modern infrastructure and dedicated experts.
-        </p>
-      </div>
-
-      <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-0">
-        {SERVICES.map((service, idx) => {
-          const imageSrc = cardImageIndices[idx] === 0 ? service.image : secondaryImages[idx % secondaryImages.length];
-          return (
-            <Link to={service.link} key={service.id} className="group relative flex flex-col h-full overflow-hidden shadow-2xl block">
-              <img src={imageSrc} alt={service.title} className="w-full h-full object-cover flex-1 transition-transform duration-1000 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-transparent to-transparent"></div>
-              <div className="absolute bottom-6 left-6 right-16 flex flex-col justify-end">
-                <h3 className="text-2xl font-black text-white mb-2 uppercase tracking-tight">{service.title}</h3>
-                <p className="text-white/90 text-sm leading-relaxed">{service.description}</p>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
+              {/* Left column – red on mobile, transparent on desktop */}
+              <div className="lg:col-span-5 bg-red-600 lg:bg-transparent flex items-center justify-center p-20">
+                <img
+                  src={heroI3}
+                  className="w-[700px] h-[600px] object-cover shadow-2xl"
+                  alt="Logistics"
+                />
               </div>
-              <button
-                onClick={(e) => toggleImage(idx, e)}
-                className="absolute bottom-6 right-6 bg-red-600 p-2 text-white shadow-2xl hover:bg-red-700 transition-colors z-10"
-                aria-label="Change image"
-              >
-                <Plus size={24} strokeWidth={4} />
-              </button>
-            </Link>
-          );
-        })}
-      </div>
-    </div>
-  </div>
-</section>
 
-        {/* Additional Services - with vertical bullets and longer image */}
-        <section className="py-24 bg-white overflow-hidden">
+              {/* Right column – white background */}
+              <div className="lg:col-span-7 bg-white p-12 lg:p-16 flex flex-col justify-center">
+                <span className="text-red-600 font-black uppercase tracking-widest text-xs mb-4 block">ABOUT GIZE PLC</span>
+                <h2 className="text-3xl lg:text-4xl font-black text-blue-900 mb-6 leading-tight uppercase">
+                  Gize PLC has built nearly Twelve years of experience delivering comprehensive logistics solutions in Ethiopia
+                </h2>
+                <div className="space-y-6 text-gray-700 text-lg font-medium leading-relaxed">
+                  <p>
+                    Gize PLC specializes in delivering personalized and efficient logistics solutions across air, ocean, and overland freight, complemented by expert customs clearance. We eliminate supply chain friction by offering tailored, end-to-end strategies that focus on compliance, risk reduction, and operational optimization for every client.
+                  </p>
+                  <p>
+                    With a dedicated team and a modern fleet, we transform complex shipping challenges into seamless experiences. We are committed to empowering your business by providing the reliable, fast, and secure movement of your cargo.
+                  </p>
+                </div>
+                <Link
+                  to="/about"
+                  className="mt-8 bg-red-600 hover:bg-red-700 text-white px-10 py-4 font-black shadow-xl inline-flex items-center gap-3 self-start transition-all uppercase tracking-widest text-sm"
+                >
+                  See detail <ChevronRight size={20} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Services Section - with plus icon on cards, positioned bottom right */}
+        <section className="py-20 bg-gray-50 border-y border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-5xl font-black text-blue-900 uppercase tracking-tighter">Additional Services</h2>
-              <div className="w-32 h-1.5 bg-red-600 mx-auto mt-4"></div>
+            <div className="text-center mb-14">
+              <h2 className="text-5xl font-black text-blue-900 mb-4 uppercase">Our Services</h2>
+              <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
+              <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
+                Gize Logistics PLC delivers the knowledge and opportunities needed to optimize every mile on every lane. 
+                We provide full-service transportation, shipping, port handling, and customs clearance solutions.
+              </p>
             </div>
           </div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col border border-gray-100 shadow-2xl overflow-hidden rounded-sm">
-              <div className="flex bg-gray-50 flex-wrap overflow-x-auto">
-                {additionalServices.map((service, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveTab(idx)}
-                    className={`flex-1 min-w-[200px] px-6 py-8 font-black text-[11px] uppercase tracking-widest transition-all border-b-4 ${
-                      activeTab === idx ? 'bg-white text-red-600 border-red-600' : 'text-blue-900 border-transparent hover:bg-white/50'
-                    }`}
-                  >
-                    {service.name.split(' - ')[0]}
-                  </button>
-                ))}
+          <div className="max-w-7xl mx-auto">
+            <div className="lg:grid lg:grid-cols-12 lg:gap-0 flex flex-col gap-8">
+              <div className="lg:col-span-4 bg-[#0B1238] text-white p-10 flex flex-col justify-center border-l-8 border-red-600 shadow-xl h-full">
+                <h3 className="text-3xl font-black mb-6 uppercase">Our Commitment</h3>
+                <p className="text-white/90 leading-relaxed text-lg mb-6">
+                  At GIZE PLC, we prioritize building long-term relationships through exceptional service and professional logistics handling.
+                </p>
+                <p className="text-white/80 leading-relaxed">
+                  We ensure safe, fast, and secure cargo movement with modern infrastructure and dedicated experts.
+                </p>
               </div>
-              <div className="p-12 bg-white flex flex-col lg:flex-row gap-12 items-start">
-                <img
-                  src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=80&w=800"
-                  className="w-full lg:w-1/2 h-96 object-cover rounded shadow-xl"
-                  alt="Service Detail"
-                />
-                <div className="flex flex-col gap-6 w-full">
-                  <h3 className="text-3xl font-black text-blue-900 leading-tight uppercase">{additionalServices[activeTab].name}</h3>
-                  <p className="text-gray-600 leading-relaxed text-lg font-medium italic">"{additionalServices[activeTab].content}"</p>
-                  <ul className="grid grid-cols-1 gap-4 mt-4">
-                    {['Secure storage', 'Professional Packing', 'Precise Labeling', 'Container stuffing', 'Efficient Handling'].map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 font-bold text-blue-900 text-sm">
-                        <CheckCircle2 className="text-red-600 shrink-0" size={20} /> {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+
+              <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-0">
+                {SERVICES.map((service, idx) => {
+                  const imageSrc = cardImageIndices[idx] === 0 ? service.image : secondaryImages[idx % secondaryImages.length];
+                  return (
+                    <Link to={service.link} key={service.id} className="group relative flex flex-col h-full overflow-hidden shadow-2xl block">
+                      <img src={imageSrc} alt={service.title} className="w-full h-full object-cover flex-1 transition-transform duration-1000 group-hover:scale-105" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-transparent to-transparent"></div>
+                      <div className="absolute bottom-6 left-6 right-16 flex flex-col justify-end">
+                        <h3 className="text-2xl font-black text-white mb-2 uppercase tracking-tight">{service.title}</h3>
+                        <p className="text-white/90 text-sm leading-relaxed">{service.description}</p>
+                      </div>
+                      <button
+                        onClick={(e) => toggleImage(idx, e)}
+                        className="absolute bottom-6 right-6 bg-red-600 p-2 text-white shadow-2xl hover:bg-red-700 transition-colors z-10"
+                        aria-label="Change image"
+                      >
+                        <Plus size={24} strokeWidth={4} />
+                      </button>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Additional Services Section */}
+        <section className="py-24 bg-white border-t border-gray-100">
+          <div className="max-w-7xl mx-auto px-8">
+            <h2 className="text-center font-black text-4xl mb-16 tracking-tighter text-blue-900 uppercase">ADDITIONAL SERVICES</h2>
+            <div className="flex flex-wrap justify-center gap-8 mb-20 border-b border-gray-200">
+              {additionalServices.map((service, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveTab(idx)}
+                  className={`pb-4 text-[10px] font-black tracking-widest uppercase transition-all ${activeTab === idx ? 'text-[#E31B23] border-b-2 border-[#E31B23]' : 'text-gray-400 border-transparent hover:text-gray-900'}`}
+                >
+                  {service.name}
+                </button>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
+              <img src={additionalServices[activeTab].img} className="w-full h-[400px] object-cover" alt="Additional" />
+              <div className="space-y-6">
+                <h3 className="text-2xl font-black text-[#0B1238] uppercase tracking-tighter leading-tight">{additionalServices[activeTab].name}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed max-w-md">{additionalServices[activeTab].content}</p>
+
+                <ul className="flex flex-col gap-5 mt-8">
+                  {additionalServices[activeTab].items.map((item) => (
+                    <li key={item} className="flex items-center gap-4 text-lg font-medium text-slate-800">
+                      <div className="w-5 h-5 rounded-full bg-[#E31B23] flex items-center justify-center text-white shrink-0 shadow-sm">
+                        <Check size={12} strokeWidth={6} />
+                      </div>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
@@ -329,23 +328,27 @@ const Home = () => {
 
         {/* Hazardous Cargo Section */}
         <section className="bg-gray-100 overflow-hidden">
-          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row">
-            <div className="lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center">
-              <h2 className="text-red-600 font-black text-5xl mb-10 uppercase leading-tight tracking-tighter">Hazardous Cargo Management</h2>
-              <div className="space-y-6 text-gray-700 text-lg font-medium leading-relaxed">
-                <p>
-                  Gize PLC provides specialized logistics support for hazardous and regulated cargo, focusing on safety, risk control, and regulatory compliance throughout the supply chain. Each shipment is assessed individually to ensure proper handling procedures are applied from origin to destination.
-                </p>
-                <p>
-                  Our operations team plans secure transport solutions by selecting suitable carriers, routes, and handling methods that minimize exposure and delays. Dedicated facilities and trained personnel ensure safe storage, monitoring, and controlled movement of sensitive cargo.
-                </p>
-              </div>
-            </div>
-            <div className="lg:w-1/2 h-[600px]">
-              <img src="https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover grayscale-[30%]" alt="Dangerous Goods Handling" />
-            </div>
-          </div>
-        </section>
+  <div className="max-w-7xl mx-auto flex flex-col lg:flex-row">
+    <div className="lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center">
+      <h2 className="text-red-600 font-black text-4xl mb-10 uppercase leading-tight tracking-tighter">Hazardous Cargo Management</h2>
+      <div className="space-y-6 text-gray-700 text-lg font-medium leading-relaxed">
+        <p>
+          Gize PLC provides specialized logistics support for hazardous and regulated cargo, focusing on safety, risk control, and regulatory compliance throughout the supply chain.
+        </p>
+        <p>
+          Our operations team plans secure transport solutions by selecting suitable carriers, routes, and handling methods that minimize exposure and delays. Dedicated facilities and trained personnel ensure safe storage, monitoring, and controlled movement of sensitive cargo.
+        </p>
+      </div>
+    </div>
+    <div className="lg:w-1/2 h-[500px]">
+      <img 
+        src={hazardousImg} 
+        className="w-full h-full object-cover grayscale-[30%]" 
+        alt="Dangerous Goods Handling" 
+      />
+    </div>
+  </div>
+</section>
 
         {/* Affiliated Companies */}
         <section className="py-24 bg-white text-center">
